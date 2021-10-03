@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package protoboilerplate;
+
+import "proto/status.proto";
+
+service StatusService {
+    rpc GetStatus(StatusRequest) returns (StatusResponse) {}
+}

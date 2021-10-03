@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package protoboilerplate;
+
+message StatusRequest {
+    string name     = 1;
+}
+
+message StatusResponse {
+    string name     = 1;
+}
