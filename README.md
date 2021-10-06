@@ -21,6 +21,7 @@ Oh, and hey, listen:
 
 > **Part of the cmake file in the protobuf directory (At this time) has a hard-coded path to the grpc_python_plugin executable on my machine. You, of course, are going to have to change that to get it to work on your machine. Unless your name is jordan and you installed grpc in ~/.local. If you did... sup twinsie!??!**
 
+one note on that, i just read on some blog post `One small wrinkle I ran into is that you also have to make install the protobuf library (pulled in as a Git submodule by the gRPC checkout process). Even though gRPC's Makefile compiles it, it doesn't install it.` so maybe if I installed the protobuf lib that came with gRCP things would be easier? you should try it and do a PR.
 
 install gRPC locally, i have it at ~/.local/ because I followed these instructions exactly (https://grpc.io/docs/languages/cpp/quickstart/)
 
@@ -32,6 +33,17 @@ I already had python3 on my machine so I did this
 
 `pip3 install googleapis-common-protos`
 
+
+And THEN, I decided I wanted to be able to pass arguments to the apps and have config files. I decided to use boost::program_options. To get that to work (and make it so you can compile this mess) you have to install boost. On my machine, i downloaded the tar file from boost, unziped (i know) it to ~/.local and had all kinds of trouble getting cmake to see it. WELP... you have to build it. so, I did that by doing bootstrap.sh and then ./b2 - after that was done it just worked.
+
+And THEN, I decided I wanted logging. So, I did this in my ~/.local directory:
+$ git clone https://github.com/gabime/spdlog.git
+$ cd spdlog && mkdir build && cd build
+$ cmake .. && make -j
+and then updated the cmake file to use it.
+but that didn't work because when you make spdlog it doesn't install it. Since I didn't specify a build prefix when I did the initial cmake, it wanted to install it to /user/local... which, i was like... this is fine so I ran
+sudo make install
+and that installed it to /usr/local/include and /usr/local/lib
 
 Hopefully you can just make the project by doing this:
 
