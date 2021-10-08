@@ -30,3 +30,6 @@ protobuf/proto/statusservice_pb2.py
 protobuf/proto/statusservice_pb2_grpc.py
 
 
+.vscode
+build
+logs
