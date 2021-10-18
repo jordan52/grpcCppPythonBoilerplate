@@ -42,7 +42,7 @@ def generate_ui(monitor) -> Table:
         
     header = Table.grid(expand=True)
     header.add_column(justify="center", ratio=1)
-    header.add_row("[b]Protobuf Monitor")
+    header.add_row("[b]Node Monitor")
     
     layout.split(
         Layout(name="header", size=3),
