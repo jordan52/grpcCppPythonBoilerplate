@@ -3,7 +3,7 @@ import sys
 import os
 
 # I don't like this, but it is the simplest way to grab the proto files.
-sys.path.append(os.path.dirname(os.path.dirname(__file__)) + '../protobuf')
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)),'protobuf'))
 
 from proto import status_pb2
 from proto import statusservice_pb2_grpc
