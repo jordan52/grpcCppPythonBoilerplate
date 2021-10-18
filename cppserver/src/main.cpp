@@ -24,7 +24,7 @@ public:
     }
     virtual ::grpc::Status GetStatus(::grpc::ServerContext* context, const ::protoboilerplate::StatusRequest* request, ::protoboilerplate::StatusResponse* response)
     {
-        _logger->info("Server: GetStatus for \"{}\".", request->name());
+        _logger->warn("Server: GetStatus for \"{}\".", request->name());
         response->set_name("OK");
         return grpc::Status::OK;
     }
@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
 
     logger->warn("Server getting ready to listen on {}!", address_port);
     logger->warn("yikes");
-    logger->error("double yikes!");
+    logger->error("double yikes");
 
     std::unique_ptr<grpc::Server> server(builder.BuildAndStart());
     server->Wait();
