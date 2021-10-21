@@ -8,18 +8,19 @@ import secrets
 nodeNames = ['battery', 'correct', 'horse', 'staple', "cheeseballs"]
 
 # I don't like this, but it is the simplest way to grab the proto files.
-sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)),'protobuf'))
-
+#sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)),'protobuf'))
+from os.path import dirname, abspath
+sys.path.append(os.path.join(dirname(dirname(abspath(__file__))),'protobuf'))
 from proto import status_pb2
 from proto import statusservice_pb2_grpc
 
 
 def getstatus(stub):
     try:
-        statreq = status_pb2.StatusRequest(name = secrets.choice(nodeNames))
+        statreq = status_pb2.StatusRequest(node_name = secrets.choice(nodeNames))
         statres = stub.GetStatus(statreq)
         print(statres)
-        print(f"manual member get for name is {statres.name}")
+        print(f"manual member get for name is {statres.node_name}")
     except grpc.RpcError as e:
         print(e.code())
     else:

@@ -8,7 +8,9 @@ import secrets
 from blessed import Terminal
 from concurrent import futures
 # I don't like this, but it is the simplest way to grab the proto files.
-sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)),'protobuf'))
+#sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)),'protobuf'))
+from os.path import dirname, abspath
+sys.path.append(os.path.join(dirname(dirname(abspath(__file__))),'protobuf'))
 
 from proto import status_pb2
 from proto import statusservice_pb2_grpc
@@ -52,7 +54,7 @@ class Menu:
 class Node:
     def __init__(self, node):
         #todo: add the rest of these boys as the params become available. Probably could short circuit out of this if the schema is legit.
-        self.name = node.name
+        self.name = node.node_name
         
         #these are just arbitrary parameters. The UI will draw whatever is in node.
         signs = ['leo', 'cancer', 'donner', 'blitson', "salsa"]
@@ -88,10 +90,10 @@ class Monitor:
         self.events.append(request)
         self.dirty = True #you can be smarter about this. Don't redraw if you aren't on a thing thats changed.
         
-        if request.name in self.nodes:
-            self.nodes[request.name].requests += 1
+        if request.node_name in self.nodes:
+            self.nodes[request.node_name].requests += 1
         else:
-            self.nodes[request.name] = Node(request)
+            self.nodes[request.node_name] = Node(request)
             #update menu keys with new nodes.
             self.menu.set_items(list(self.nodes.keys()))
 

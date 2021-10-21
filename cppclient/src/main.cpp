@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
     protoboilerplate::StatusRequest statusRequest;
     protoboilerplate::StatusResponse statusResponse;
 
-    statusRequest.set_name("cppclient");
+    statusRequest.set_node_name("cppclient");
 
     auto channel = grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials());
     std::unique_ptr<protoboilerplate::StatusService::Stub> stub = protoboilerplate::StatusService::NewStub(channel);

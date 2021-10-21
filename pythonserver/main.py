@@ -3,8 +3,9 @@ import sys
 import os
 from concurrent import futures
 # I don't like this, but it is the simplest way to grab the proto files.
-sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)),'protobuf'))
-
+#sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)),'protobuf'))
+from os.path import dirname, abspath
+sys.path.append(os.path.join(dirname(dirname(abspath(__file__))),'protobuf'))
 from proto import status_pb2
 from proto import statusservice_pb2_grpc
 

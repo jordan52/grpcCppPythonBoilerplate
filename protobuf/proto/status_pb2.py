@@ -19,10 +19,50 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12proto/status.proto\x12\x10protoboilerplate\"\x1d\n\rStatusRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1e\n\x0eStatusResponse\x12\x0c\n\x04name\x18\x01 \x01(\tb\x06proto3'
+  serialized_pb=b'\n\x12proto/status.proto\x12\x10protoboilerplate\"\xcf\x02\n\rStatusRequest\x12\x11\n\tnode_name\x18\x01 \x01(\t\x12=\n\nnode_state\x18\x02 \x01(\x0e\x32).protoboilerplate.StatusRequest.NodeState\x12\x18\n\x10upstream_feqency\x18\x03 \x01(\x01\x12\x17\n\x0fupstreamt_count\x18\x04 \x01(\x03\x12\x1c\n\x14\x64ownstream_frequency\x18\x05 \x01(\x01\x12\x18\n\x10\x64ownstream_count\x18\x06 \x01(\x03\x12\x16\n\x0eupstream_nodes\x18\x07 \x03(\t\x12\x18\n\x10\x64ownstream_nodes\x18\x08 \x03(\t\"O\n\tNodeState\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0c\n\x08STARTING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x0b\n\x07STOPPED\x10\x03\x12\t\n\x05\x45RROR\x10\x04\"\x1e\n\x0eStatusResponse\x12\x0c\n\x04name\x18\x01 \x01(\tb\x06proto3'
 )
 
 
+
+_STATUSREQUEST_NODESTATE = _descriptor.EnumDescriptor(
+  name='NodeState',
+  full_name='protoboilerplate.StatusRequest.NodeState',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='STARTING', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='RUNNING', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='STOPPED', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ERROR', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=297,
+  serialized_end=376,
+)
+_sym_db.RegisterEnumDescriptor(_STATUSREQUEST_NODESTATE)
 
 
 _STATUSREQUEST = _descriptor.Descriptor(
@@ -34,9 +74,58 @@ _STATUSREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='protoboilerplate.StatusRequest.name', index=0,
+      name='node_name', full_name='protoboilerplate.StatusRequest.node_name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='node_state', full_name='protoboilerplate.StatusRequest.node_state', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='upstream_feqency', full_name='protoboilerplate.StatusRequest.upstream_feqency', index=2,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='upstreamt_count', full_name='protoboilerplate.StatusRequest.upstreamt_count', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='downstream_frequency', full_name='protoboilerplate.StatusRequest.downstream_frequency', index=4,
+      number=5, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='downstream_count', full_name='protoboilerplate.StatusRequest.downstream_count', index=5,
+      number=6, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='upstream_nodes', full_name='protoboilerplate.StatusRequest.upstream_nodes', index=6,
+      number=7, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='downstream_nodes', full_name='protoboilerplate.StatusRequest.downstream_nodes', index=7,
+      number=8, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -45,6 +134,7 @@ _STATUSREQUEST = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
+    _STATUSREQUEST_NODESTATE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -52,8 +142,8 @@ _STATUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=40,
-  serialized_end=69,
+  serialized_start=41,
+  serialized_end=376,
 )
 
 
@@ -84,10 +174,12 @@ _STATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=71,
-  serialized_end=101,
+  serialized_start=378,
+  serialized_end=408,
 )
 
+_STATUSREQUEST.fields_by_name['node_state'].enum_type = _STATUSREQUEST_NODESTATE
+_STATUSREQUEST_NODESTATE.containing_type = _STATUSREQUEST
 DESCRIPTOR.message_types_by_name['StatusRequest'] = _STATUSREQUEST
 DESCRIPTOR.message_types_by_name['StatusResponse'] = _STATUSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)

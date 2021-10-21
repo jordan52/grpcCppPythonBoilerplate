@@ -3,9 +3,27 @@ syntax = "proto3";
 package protoboilerplate;
 
 message StatusRequest {
-    string name     = 1;
+  string node_name                       = 1;
+
+  enum NodeState {
+    UNSPECIFIED = 0;
+    STARTING    = 1;
+    RUNNING     = 2;
+    STOPPED     = 3;
+    ERROR       = 4;
+  }
+
+  NodeState node_state               = 2;
+  double upstream_feqency            = 3;
+  int64 upstreamt_count              = 4;
+  double downstream_frequency        = 5;
+  int64 downstream_count             = 6;
+
+  repeated string upstream_nodes     = 7;
+  repeated string downstream_nodes   = 8;
+
 }
 
 message StatusResponse {
-    string name     = 1;
+  string name     = 1;
 }

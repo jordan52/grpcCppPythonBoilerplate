@@ -24,7 +24,7 @@ public:
     }
     virtual ::grpc::Status GetStatus(::grpc::ServerContext* context, const ::protoboilerplate::StatusRequest* request, ::protoboilerplate::StatusResponse* response)
     {
-        _logger->warn("Server: GetStatus for \"{}\".", request->name());
+        _logger->warn("Server: GetStatus for \"{}\".", request->node_name());
         response->set_name("OK");
         return grpc::Status::OK;
     }
